@@ -1,0 +1,37 @@
+@import './vars.scss';
+
+:root {
+  --leaf-color-white: #{$white};
+  --leaf-color-black: #{$black};
+
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --leaf-color-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}
+
+:root {
+  @each $color, $shades in $colors {
+    --leaf-color-#{$color}-filled-bg: var(--leaf-color-#{$color}-4);
+    --leaf-color-#{$color}-filled-bd: var(--leaf-color-#{$color}-4);
+    --leaf-color-#{$color}-filled-tx: var(--leaf-color-white);
+    --leaf-color-#{$color}-filled-bg-hover: var(--leaf-color-#{$color}-3);
+    --leaf-color-#{$color}-filled-bd-hover: var(--leaf-color-#{$color}-3);
+    --leaf-color-#{$color}-filled-tx-hover: var(--leaf-color-white);
+
+    --leaf-color-#{$color}-outlined-bg: transparent;
+    --leaf-color-#{$color}-outlined-bd: var(--leaf-color-#{$color}-4);
+    --leaf-color-#{$color}-outlined-tx: var(--leaf-color-#{$color}-4);
+    --leaf-color-#{$color}-outlined-bg-hover: var(--leaf-color-#{$color}-10);
+    --leaf-color-#{$color}-outlined-bd-hover: var(--leaf-color-#{$color}-3);
+    --leaf-color-#{$color}-outlined-tx-hover: var(--leaf-color-#{$color}-3);
+
+    --leaf-color-#{$color}-ghost-bg: transparent;
+    --leaf-color-#{$color}-ghost-bd: transparent;
+    --leaf-color-#{$color}-ghost-tx: var(--leaf-color-#{$color}-4);
+    --leaf-color-#{$color}-ghost-bg-hover: var(--leaf-color-#{$color}-10);
+    --leaf-color-#{$color}-ghost-bd-hover: var(--leaf-color-#{$color}-10);
+    --leaf-color-#{$color}-ghost-tx-hover: var(--leaf-color-#{$color}-3);
+  }
+}

@@ -1,0 +1,101 @@
+.root {
+  height: var(--button-height);
+
+  background-color: var(--button-bg);
+  border-color: var(--button-bd);
+  color: var(--button-tx);
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+    border-color: var(--button-bd-hover);
+    color: var(--button-tx-hover);
+  }
+
+  font-size: var(--button-fz);
+  & svg {
+    font-size: calc(var(--button-fz) * 1.25);
+  }
+
+  padding-inline: var(--button-spacing);
+  gap: calc(var(--button-spacing) / 1.5);
+  border-radius: var(--button-radius);
+  justify-content: var(--button-justify);
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  &[data-fullWidth] {
+    width: 100%;
+  }
+
+  &[data-left],
+  &[data-empty] {
+    padding-left: calc(var(--button-spacing) / 1.5);
+  }
+
+  &[data-right],
+  &[data-empty] {
+    padding-right: calc(var(--button-spacing) / 1.5);
+  }
+
+  &[data-loading] {
+    pointer-events: none;
+  }
+
+  &[data-loading='default'] .content,
+  &[data-loading='default'] svg {
+    opacity: 0;
+  }
+
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  line-height: 1;
+  border-width: 1px;
+  border-style: solid;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  .spinner {
+    position: relative;
+    width: var(--button-fz);
+    height: var(--button-fz);
+    margin-inline: 0.125rem;
+
+    .spinner__animate {
+      display: block;
+      height: inherit;
+      width: inherit;
+
+      border-radius: 999px;
+      border-style: solid;
+      border-width: 0.2rem;
+      border-left-color: currentColor;
+      border-top-color: currentColor;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+
+      animation: var(--leaf-animation-rotate-infinite);
+    }
+  }
+
+  &[data-loading='default'] .spinner {
+    margin-inline: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

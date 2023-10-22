@@ -1,0 +1,45 @@
+{
+  "name": "@react-leaf/core",
+  "version": "0.0.2",
+  "description": "React Leaf Core components",
+  "author": "Nans Laupretre <nans.laupretre@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "react-leaf",
+    "react-components",
+    "ui",
+    "uikit",
+    "components",
+    "library",
+    "frontend",
+    "design-system"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./cjs/index.js",
+  "types": "./lib/index.d.ts",
+  "module": "./es/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./es/index.js",
+        "types": "./lib/index.d.ts"
+      },
+      "require": {
+        "default": "./cjs/index.js",
+        "types": "./lib/index.d.ts"
+      }
+    },
+    "./styles.css": "./styles/index.css"
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "scripts": {
+    "build": "tsc && vite build && node ../../scripts/prepare-package.js",
+    "colors": "node scripts/make-colors.js"
+  }
+}

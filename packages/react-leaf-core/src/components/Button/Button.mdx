@@ -1,0 +1,105 @@
+{/* Button.mdx */}
+
+import { ArgTypes, Markdown, Meta, Source, Story, Canvas } from '@storybook/blocks'
+import * as ButtonStories from './Button.stories'
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+```ts
+import { Button } from '@react-leaf/core'
+```
+
+## Basic button
+
+The `Button` is by default `blue` and `md` size.
+
+<Canvas of={ButtonStories.Default} sourceState="shown" />
+
+## Variants
+
+Use the `variants` prop to change the button style. You can set the value to:
+
+- `filled` (default)
+- `outlined`
+- `ghost`
+
+<Canvas of={ButtonStories.Variants} />
+
+## Sizes
+
+Use the `size` prop to change the button size. You can set the value to:
+
+- `sm`
+- `md` (default)
+- `lg`
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Radius
+
+Use the `radius` prop to change the button radius. You can set the value to:
+
+- `sm`
+- `md` (default)
+- `lg`
+
+<Canvas of={ButtonStories.Radius} />
+
+## Icons
+
+Use the `leftSection` or `rightSection` prop to add an icon to the button.\
+You can use any `React.ReactNode` component. For example, you can use `react-icons`.
+
+<Canvas of={ButtonStories.Icons} />
+
+## States
+
+Buttons can be disabled or in loading state.\
+When `loading` prop is set to `true`, the button will be disabled and a loading spinner will be shown.\
+You can specify where the spinner is rendered using the `loadingPosition` prop.
+
+> Note: setting `loadingPosition` to `default` display a spinner instead of the label.\
+> When set to 'start' or 'end', display the spinner instead of `LeftSection` or `RightSection`
+
+<Canvas of={ButtonStories.States} />
+
+## Colors
+
+Use the `color` prop to change the button color. You can set the any value from the theme colors
+
+<Canvas of={ButtonStories.Colors} />
+
+## Props
+
+<ArgTypes of={ButtonStories} />
+
+## CSS Classes
+
+| Name                            | Node                                                         |
+| ------------------------------- | ------------------------------------------------------------ |
+| `.leaf-button-root`             | `<button>` Main class of the button                          |
+| `.leaf-button-content`          | `<span>` Child of the button and contain the `children` prop |
+| `.leaf-button-spinner`          | `<div>` Child of the button and contain the loader spinner   |
+| `.leaf-button-spinner__animate` | `<span>` The spinner it self                                 |
+
+## CSS Variables
+
+Theses variables are set in inlined style CSS on the `<buttton>` element.
+
+| Name                | Description             |
+| ------------------- | ----------------------- |
+| `--button-height  ` | Height                  |
+| `--button-bg      ` | Background color        |
+| `--button-bd      ` | Border color            |
+| `--button-tx      ` | Font color              |
+| `--button-bg-hover` | :hover Background color |
+| `--button-bd-hover` | :hover Border color     |
+| `--button-tx-hover` | :hover Font color       |
+| `--button-fz`       | Font size               |
+| `--button-spacing`  | Padding inline          |
+| `--button-radius`   | Border radius           |
+| `--button-justify`  | Justify-content         |

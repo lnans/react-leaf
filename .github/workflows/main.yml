@@ -1,0 +1,26 @@
+name: '[PR] Build & Tests'
+on:
+  pull_request:
+    branches: ["main", "develop"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Check linting
+        run: yarn lint
+
+      - name: Check types
+        run: yarn check
+
+      - name: Build libraries
+        run: yarn build
+
+      - name: Tests
+        run: yarn test
